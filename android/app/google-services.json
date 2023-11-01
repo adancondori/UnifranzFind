@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "187160490488",
+    "project_id": "unifranzfind",
+    "storage_bucket": "unifranzfind.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:187160490488:android:584b11e183a703c3be260d",
+        "android_client_info": {
+          "package_name": "bo.edu.unifranzfind.unifranzfind"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDJ22RBx7B96bnIxkNciIJwiOo54B9TTzM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
