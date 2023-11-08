@@ -5,7 +5,7 @@ FirebaseFirestore db = FirebaseFirestore.instance;
 
 Future<List> getUsers() async {
   List datas = [];
-  CollectionReference collectionReference = db.collection('users');
+  CollectionReference collectionReference = db.collection('objectlost');
   QuerySnapshot querySnapshot = await collectionReference.get();
   querySnapshot.docs.forEach((element) {
     datas.add(element.data());

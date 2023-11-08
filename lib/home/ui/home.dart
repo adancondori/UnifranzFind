@@ -15,7 +15,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Material App Bar'),
+        title: const Text('UnifranzFind'),
       ),
       body: FutureBuilder(
           future: getUsers(),
@@ -24,7 +24,26 @@ class _MyHomePageState extends State<MyHomePage> {
               return ListView.builder(
                 itemCount: snapshot.data!.length,
                 itemBuilder: (context, index) {
-                  return Text(snapshot.data![index]['name']);
+                  String title = snapshot.data![index]['title']; 
+                  String description = snapshot.data![index]['description']; 
+                  String imageUrl = snapshot.data![index]['imageUrl']; 
+                  bool state = snapshot.data![index]['state']; 
+                  return ListTile(
+                    title: Text(title),
+                    subtitle: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(description),
+                        Text(state == true? "Activo": "Inacti"),
+                      ]
+                      ),
+                    leading: Image.network(
+                      imageUrl,
+                      width: 50,
+                      height: 50,
+                      fit: BoxFit.cover,
+                    ),
+                  );
                 },
               );
             }
