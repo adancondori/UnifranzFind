@@ -1,7 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:unifranzfind/firebase_options.dart';
-import 'package:unifranzfind/home/ui/home.dart';
+import 'package:unifranzfind/login/ui/registro.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -17,12 +17,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Material App',
+      title: 'Material Appp',
       home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Material App Bar'),
-        ),
-        body: MyHomePage(title: "Hola Mundo"),
+        
+        body: RegistroApp(),
       ),
     );
   }
