@@ -1,7 +1,8 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:unifranzfind/firebase_options.dart';
-import 'package:unifranzfind/login/ui/registro.dart';
+import 'package:unifranzfind/login/ui/login.dart';
+import 'package:unifranzfind/registro/ui/registro.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -18,9 +19,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Material Appp',
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
-        
-        body: RegistroApp(),
+        body: LoginScreen(),
       ),
     );
   }
