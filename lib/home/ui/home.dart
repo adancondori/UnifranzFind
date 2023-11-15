@@ -17,19 +17,6 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: const Text('Material App Bar'),
       ),
-      body: FutureBuilder(
-          future: getUsers(),
-          builder: (context, snapshot) {
-            if (snapshot.hasData) {
-              return ListView.builder(
-                itemCount: snapshot.data!.length,
-                itemBuilder: (context, index) {
-                  return Text(snapshot.data![index]['name']);
-                },
-              );
-            }
-            return const CircularProgressIndicator();
-          }),
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.add),
         onPressed: () {},
