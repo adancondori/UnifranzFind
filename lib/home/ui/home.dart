@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:unifranzfind/firebase/firebase_firestore.dart';
+import 'package:unifranzfind/firebase/firebase_formAdd.dart';
+import 'package:unifranzfind/formAdd/ui/formAdd.dart';
+
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
@@ -18,7 +21,7 @@ class _MyHomePageState extends State<MyHomePage> {
         title: const Text('UnifranzFind'),
       ),
       body: FutureBuilder(
-          future: getUsers(),
+          future: getFormLost(),
           builder: (context, snapshot) {
             if (snapshot.hasData) {
               return ListView.builder(
@@ -50,8 +53,11 @@ class _MyHomePageState extends State<MyHomePage> {
             return const CircularProgressIndicator();
           }),
       floatingActionButton: FloatingActionButton(
-        child: const Icon(Icons.add),
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(
+            context, MaterialPageRoute(builder: (context) => formAdd())
+          );
+        },
       ),
     );
   }
