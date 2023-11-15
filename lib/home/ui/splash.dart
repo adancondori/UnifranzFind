@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:unifranzfind/home/ui/home.dart';
+import 'package:unifranzfind/login/ui/login.dart';
 
 class splash extends StatelessWidget {
   const splash({Key? key}) : super(key: key);
@@ -9,7 +10,7 @@ class splash extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Timer(const Duration(seconds: 2), () {
-      Get.to(const MyHomePage(title: 'Sede:',));
+      Get.to(LoginScreen());
     });
     return const Scaffold(
       backgroundColor: Colors.orange,
@@ -18,9 +19,10 @@ class splash extends StatelessWidget {
           'UNIFRANZ FIND',
           style: TextStyle(
             color: Colors.white,
-            fontSize:35,
-            fontWeight: FontWeight.bold, 
-          ),),
+            fontSize: 35,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
       ),
     );
   }
