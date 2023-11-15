@@ -41,10 +41,11 @@ class UsersUtilidades {
         .equalTo(email)
         .once();
     if (snapshot.snapshot.value != null) {
-      for (final key in snapshot.snapshot.children) {
-        //if (users[key]['password'] == password) {
-        //  return true;
-        //}
+      for (final childSnapshot in snapshot.snapshot.children) {
+        if (childSnapshot.child('password').value == password &&
+            childSnapshot.child('email').value == email) {
+          return true;
+        }
       }
     }
     return false;
