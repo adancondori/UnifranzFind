@@ -30,31 +30,67 @@ class _MyHomePageState extends State<MyHomePage> {
                   String description = snapshot.data![index]['description'];
                   String imageUrl = snapshot.data![index]['imageUrl'];
                   bool state = snapshot.data![index]['state'];
-                  return ListTile(
-                    title: Text(title),
-                    subtitle: Column(
+
+                  return Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
+                  child: Card(
+                    elevation: 3,
+                    child: ListTile(
+                      contentPadding: const EdgeInsets.all(10),
+                      title: Text(
+                        title,
+                        style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18,
+                        ),
+                      ),
+                      subtitle: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(description),
-                          Text(state == true ? "Activo" : "Inacti"),
-                        ]),
-                    leading: Image.network(
-                      imageUrl,
-                      width: 50,
-                      height: 50,
-                      fit: BoxFit.cover,
+                          const SizedBox(height: 8),
+                          Text(
+                            description,
+                            style: const TextStyle(fontSize: 16),
+                          ),
+                          const SizedBox(height: 8),
+                          Text(
+                            state == true ? "Activo" : "Inactivo",
+                            style: TextStyle(
+                              color: state == true ? Colors.green : Colors.red,
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                      /*leading: ClipRRect(
+                        borderRadius: BorderRadius.circular(8.0),
+                        child: Image.network(
+                          imageUrl,
+                          width: 50,
+                          height: 50,
+                          fit: BoxFit.cover,
+                        ),
+                      ),*/
                     ),
-                  );
-                },
-              );
-            }
-            return const CircularProgressIndicator();
-          }),
+                  ),
+                );
+              },
+            );
+          }
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
+        },
+      ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.push(
-              context, MaterialPageRoute(builder: (context) => formAdd()));
+            context,
+            MaterialPageRoute(builder: (context) => formAdd()),
+          );
         },
+        child: const Icon(Icons.add),
       ),
     );
   }

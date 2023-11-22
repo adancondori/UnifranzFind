@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:unifranzfind/firebase/firebase_formAdd.dart';
+import 'package:unifranzfind/home/ui/home.dart';
 
 
 class formAdd extends StatefulWidget {
@@ -19,10 +20,8 @@ class _formAddState extends State<formAdd> {
       appBar: AppBar(
         title: const Text('Formulario'),
       ),
-      body: FutureBuilder(
-        future: addFormLost(myTitulo.text, myDescripcion.text, myEstado.text=="true", myImagenUrl.text), 
-        builder: (context, snapshot) {  
-          return Padding(padding: const EdgeInsets.all(16.0),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
           child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
@@ -57,14 +56,30 @@ class _formAddState extends State<formAdd> {
                 const SizedBox(height: 16),
                 ElevatedButton(
                   onPressed: () {
-                    
+                    addFormLost(
+                      myTitulo.text, 
+                      myDescripcion.text, 
+                      myEstado.text=="true", 
+                      myImagenUrl.text);
+                    cargarHome(context);
                   },
                   child: const Text('Guardar'),
                 ),
+                const SizedBox(height: 16),
+                ElevatedButton(
+                  onPressed: () {    
+                    cargarHome(context);
+                  },
+                  child: const Text('Cancelar'),
+                ),
               ],
-            ),);
-        },
-      ),
-    );
+            ),
+        ));
   }
+  void cargarHome(BuildContext context) {
+  Navigator.pushReplacement(
+    context,
+    MaterialPageRoute(builder: (context) => const MyHomePage(title: 'UnifranzFind')),
+  );
+}
 }
