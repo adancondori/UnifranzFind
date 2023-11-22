@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:unifranzfind/home/ui/home.dart';
 
 FirebaseFirestore db = FirebaseFirestore.instance;
 
@@ -6,10 +7,10 @@ Future<void> addFormLost(String titulo, String descripcion, bool estado, String 
   CollectionReference collectionReference = db.collection('objectlost');
   
   await collectionReference.add({
-    'titulo': titulo,
-    'descripcion': descripcion,
-    'estado': estado,
-    'imagenUrl': imagenUrl,
+    'title': titulo,
+    'description': descripcion,
+    'state': estado,
+    'imageUrl': imagenUrl,
   });
 }
 
