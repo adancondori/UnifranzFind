@@ -6,3 +6,8 @@ Future<XFile?> getImage() async{
     final XFile? image = await picker.pickImage(source: ImageSource.gallery);
     return image;
   }
+  Future<XFile?> getCamera() async{
+    final ImagePicker picker = ImagePicker();
+    final XFile? photo = await picker.pickImage(source: ImageSource.camera);
+    return photo;
+  }

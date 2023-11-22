@@ -53,12 +53,32 @@ class _RegistroImagenState extends State<RegistroImagen> {
               });
 
             }, 
-            child: const Text("selecionar imagen")),
+            
+            child: const Text("Selecionar imagen de galeria")),
+            ElevatedButton(onPressed:() async {
+              final imagen = await getCamera();
+              setState(() {
+                imagen_to_upload = File(imagen!.path);
+              });
+
+            }, 
+            
+            child: const Text("Tomar foto de camara")),
             ElevatedButton(onPressed:() async {
               if (imagen_to_upload == null) {
                 return;
               }
-              final uploaded = await uploadImage(imagen_to_upload!);
+              final uoload =await uploadImage(imagen_to_upload!);
+              if (uoload) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(content: Text("error al subir la imagen"))
+                );
+              }
+              else {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(content: Text("La imagen se subio correctamente"))
+                );
+              }
 
             }, child: const Text("subir imagen a firebase")),
           ],
